@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS test 2</title>
+</head>
+
+<body>
+
+	<input type="text" name="" id="userName" placeholder="Enter you Name">
+	<input type="Email" name="" id="userEamilId" placeholder="Enter you Email">
+	<input type="text" name="" id="userAge" placeholder="Enter you Date of birth">
+	<button onclick="userGetData();" type="submit" id="">Submit</button>
+
+	<p>See your result</p>	
+	<table border="1">
+		<thead>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Date of birth</th>
+		</thead>
+		<tbody id="show_result">
+			
+		</tbody>
+	</table>
+
+</body>
+
+<script type="text/javascript">
+	var userName;
+	var userEamilId;
+	var userAge;
+
+	var arrayName =[];
+	var arrayEmailId =[];
+	var arrayage =[];
+
+	function userGetData () {
+		userName = document.getElementById("userName").value;
+		userEamilId = document.getElementById("userEamilId").value;
+		userAge = document.getElementById("userAge").value;
+
+		//arrayName[arrayName.length]=userName;
+		//arrayEmailId[arrayEmailId.length]=userEamilId;
+		//arrayage[arrayage.length]=userAge;
+
+		getUserValue();
+		//alert(userName + userEamilId);
+	};
+
+	function getUserValue(){
+
+		arrayName.push(userName);
+		arrayEmailId.push(userEamilId);
+		arrayage.push(userAge);
+
+		userDisplayResult();
+		console.log(arrayName,arrayEmailId,arrayage);
+
+	}
+
+	function userDisplayResult(){
+		var i;
+		var displayResult = "";
+		var count=arrayName.length;
+   
+   for(i=0; i<count; i++){
+   	  displayResult+='<tr><td>'+arrayName[i]+'</td><td>'+arrayEmailId[i]+'</td><td>'+arrayage[i]+'</td></tr>';
+   }
+		
+		//alert(count);
+		document.getElementById("show_result").innerHTML=displayResult;
+		}
+
+
+  // displayResult+='<tr><td>'+arrayName[i]+'</td><td>'+arrayEmailId[i]+'</td><td>'+arrayage[i]+'</td></tr>';
+</script>
+
+</html>
+
